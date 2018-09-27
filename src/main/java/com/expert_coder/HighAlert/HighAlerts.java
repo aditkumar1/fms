@@ -1,9 +1,9 @@
-package com.expert_coder.cutome_alert;
+package com.expert_coder.HighAlert;
 
 import java.util.List;
 import java.util.Map;
 
-public class CustomOutputHighAlertsByVehicle {
+public class HighAlerts {
     String vin;
     String priority = "HIGH";
     List<Map<String, Object>> alerts;
@@ -32,11 +32,11 @@ public class CustomOutputHighAlertsByVehicle {
         this.alerts = alerts;
     }
 
-    public CustomOutputHighAlertsByVehicle() {
+    public HighAlerts() {
 
     }
 
-    public CustomOutputHighAlertsByVehicle(String vin, List<Map<String, Object>> alerts) {
+    public HighAlerts(String vin, List<Map<String, Object>> alerts) {
 
         this.vin = vin;
         this.alerts = alerts;

@@ -37,7 +37,6 @@ public class AlertServiceImp implements AlertService {
         }
         reading.setVehicle(vehicleExist.get());
 
-//        RulesEngineParameters parameters = new RulesEngineParameters().skipOnFirstFailedRule(true).skipOnFirstNonTriggeredRule(true);
         RulesEngineParameters parameters = new RulesEngineParameters();
         RulesEngine rulesEngine = new DefaultRulesEngine(parameters);
         Rules rules = new Rules();

@@ -14,7 +14,7 @@ import org.jeasy.rules.annotation.Rule;
 public class RuleThree {
 
     @Condition
-    public boolean isAlert(@Fact("vehicle") Vehicle vehicle, @Fact("reading") Reading reading) {
+    public boolean checkAlert(@Fact("vehicle") Vehicle vehicle, @Fact("reading") Reading reading) {
         int frontLeft = reading.getTires().getFrontLeft();
         int frontRight = reading.getTires().getFrontRight();
         int rearLeft = reading.getTires().getRearLeft();
@@ -23,7 +23,7 @@ public class RuleThree {
     }
 
     @Action
-    public void addAlert(@Fact("alertRepository") AlertRepository alertRepository, @Fact("vehicle") Vehicle vehicle, @Fact("reading") Reading reading) {
+    public void generateAlert(@Fact("alertRepository") AlertRepository alertRepository, @Fact("vehicle") Vehicle vehicle, @Fact("reading") Reading reading) {
         alertRepository.save(new Alert("Tire pressure is above/below the limits.", Priority.LOW, vehicle, reading.getTimestamp()));
     }
 

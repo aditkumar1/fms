@@ -1,6 +1,6 @@
 package com.expert_coder.controller;
 
-import com.expert_coder.cutome_alert.CustomOutputHighAlertsByVehicle;
+import com.expert_coder.HighAlert.HighAlerts;
 import com.expert_coder.entity.Alert;
 import com.expert_coder.entity.Vehicle;
 import com.expert_coder.service.VehicleService;
@@ -23,34 +23,32 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @ApiOperation(value = "create/update vehicles " ,notes = "This endpoint helps to create and/or update vehicle in the database.")
+    @ApiOperation(value =  "vehicles  create")
     public List<Vehicle> create(@RequestBody List<Vehicle> vehicles) {
         return vehicleService.create(vehicles);
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @ApiOperation(value = "Returns all vehicle details.", notes = "This endpoint helps to retrieve all details about vehicles from the database.")
+    @ApiOperation(value = "Returns all vehicle details.")
     public List<Vehicle> findAll() {
         return vehicleService.findAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{vin}/alerts", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @ApiOperation(value = "Retrieve all alerts by vehicle")
+    @ApiOperation(value = "Get all alerts by vehicle")
     public List<Alert> findAllAlertByVehicle(@PathVariable("vin") String vin) {
-        System.out.println("Controller");
         return vehicleService.findAllAlertByVehicle(vin);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{vin}/locations", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @ApiOperation(value = "Retrieve Location of vehicle by VIN number.")
+    @ApiOperation(value = "Get Location of vehicle by VIN number.")
     public List<Map<String, String>> findLocationOfAllVehicles(@PathVariable("vin") String vin) {
-
         return vehicleService.findLocationOfAllVehicles(vin);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/all/alerts/high", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @ApiOperation(value = "Retrieve high alert for all vehicles in the database.")
-    public List<CustomOutputHighAlertsByVehicle> findHighAlertForAllVehicle() {
+    @ApiOperation(value = "Get high alert for all vehicles in the database.")
+    public List<HighAlerts> findHighAlertForAllVehicle() {
         return vehicleService.findHighAlertForAllVehicle();
     }
 }

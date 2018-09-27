@@ -1,7 +1,7 @@
 package com.expert_coder.service;
 
 
-import com.expert_coder.cutome_alert.CustomOutputHighAlertsByVehicle;
+import com.expert_coder.HighAlert.HighAlerts;
 import com.expert_coder.entity.Alert;
 import com.expert_coder.entity.Vehicle;
 
@@ -17,5 +17,5 @@ public interface VehicleService {
 
     public List<Map<String, String>> findLocationOfAllVehicles(String vin);
 
-    public List<CustomOutputHighAlertsByVehicle> findHighAlertForAllVehicle();
+    public List<HighAlerts> findHighAlertForAllVehicle();
 }

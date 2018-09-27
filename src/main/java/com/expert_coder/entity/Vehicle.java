@@ -25,22 +25,8 @@ public class Vehicle {
 
     @CreationTimestamp
     private LocalDateTime lastServiceDate;
-
-//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JsonIgnore
-//    private Set<Alert> alerts;
-
     public Vehicle() {
     }
-
-//    public Set<Alert> getAlerts() {
-//        return alerts;
-//    }
-//
-//    public void setAlerts(Set<Alert> alerts) {
-//        this.alerts = alerts;
-//    }
-
     public Vehicle(String vin) {
         this.vin = vin;
     }

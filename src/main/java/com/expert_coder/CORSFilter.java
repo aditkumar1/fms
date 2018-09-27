@@ -1,5 +1,6 @@
 package com.expert_coder;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 

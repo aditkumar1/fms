@@ -20,5 +20,5 @@ public interface AlertRepository extends CrudRepository<Alert, String> {
     List<Map<String, Object>> findHighAlertForAllVehicle(@Param("from") @CreationTimestamp LocalDateTime from, @Param("to") @CreationTimestamp LocalDateTime to, @Param("vehicle") Vehicle vehicle);
 
     @Query("select distinct alert.vehicle from Alert alert order by alert.vehicle")
-    List<Vehicle> findDistictVehicle();
+    List<Vehicle> findDistinctVehicle();
 }

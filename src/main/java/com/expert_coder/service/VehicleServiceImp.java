@@ -1,7 +1,7 @@
 package com.expert_coder.service;
 
 import com.expert_coder.Exception.VehicleNotFoundException;
-import com.expert_coder.cutome_alert.CustomOutputHighAlertsByVehicle;
+import com.expert_coder.HighAlert.HighAlerts;
 import com.expert_coder.entity.Alert;
 import com.expert_coder.entity.Vehicle;
 import com.expert_coder.repository.AlertRepository;
@@ -66,12 +66,12 @@ public class VehicleServiceImp implements VehicleService {
     }
 
     @Override
-    public List<CustomOutputHighAlertsByVehicle> findHighAlertForAllVehicle() {
-        List<CustomOutputHighAlertsByVehicle> result = new LinkedList<>();
-        List<Vehicle> listOfVehicle = alertRepository.findDistictVehicle();
+    public List<HighAlerts> findHighAlertForAllVehicle() {
+        List<HighAlerts> result = new LinkedList<>();
+        List<Vehicle> listOfVehicle = alertRepository.findDistinctVehicle();
         LocalDateTime current = LocalDateTime.now();
         for (Vehicle v : listOfVehicle) {
-            CustomOutputHighAlertsByVehicle data = new CustomOutputHighAlertsByVehicle();
+            HighAlerts data = new HighAlerts();
             data.setVin(v.getVin());
             data.setAlerts(alertRepository.findHighAlertForAllVehicle(current.minusHours(2), current, v));
             result.add(data);

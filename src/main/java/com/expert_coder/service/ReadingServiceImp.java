@@ -23,11 +23,11 @@ public class ReadingServiceImp implements ReadingService {
     
     @Transactional
     public void create(Reading reading) {
-        Optional<Vehicle> vehicleExist = vRepository.findByVin(reading.getVehicle().getVin());
-        if (!vehicleExist.isPresent()) {
+        Optional<Vehicle> vehicle = vRepository.findByVin(reading.getVehicle().getVin());
+        if (!vehicle.isPresent()) {
             throw new VehicleNotFoundException("Vehicle with VIN:#" + reading.getVehicle().getVin() + " not available.");
         }
-        reading.setVehicle(vehicleExist.get());
+        reading.setVehicle(vehicle.get());
         rRepository.save(reading);
     }
 }
